@@ -143,12 +143,13 @@ Object.assign(JA, {
   "Does the pacing create the intended anticipation and payoff?": "テンポは、狙いどおりの期待感と見せ場を生んでいるか。",
   "Are the firework count, size, colour and behaviour clear?": "花火の数、大きさ、色、動きは分かりやすいか。",
   "Are the characters and card reveal consistent with the intended design?": "キャラクターとカード演出は、意図したデザインと一貫しているか。",
-  "Are the spoken lines, expressions and gestures right for the scene?": "セリフ、表情、しぐさはシーンに合っているか。"
+  "Are the spoken lines, expressions and gestures right for the scene?": "セリフ、表情、しぐさはシーンに合っているか。",
+  "Just reply to the message this preview came with. A few words on what works and what doesn’t is plenty, and I’ll take the next round from there.": "このプレビューをお送りしたメッセージに、そのままご返信ください。良かった点、気になった点をひと言いただくだけで十分です。そこから次の制作を進めます。"
 });
 function t(text){return IS_JA ? (JA[text] || text) : text;}
 if(IS_JA){
  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;
- while((node=walker.nextNode())){const value=node.nodeValue.trim();if(JA[value])node.nodeValue=node.nodeValue.replace(value,JA[value]);}
+ while((node=walker.nextNode())){const value=node.nodeValue.trim();if(JA[value])node.nodeValue=JA[value];}
  document.querySelectorAll('[alt],[aria-label]').forEach(el=>['alt','aria-label'].forEach(attr=>{const value=el.getAttribute(attr);if(value){el.setAttribute(attr,value.startsWith('Move ')?'移動：'+t(el.querySelector('.node-handle span')?.textContent||value.slice(5).replace(/^./,c=>c.toUpperCase())):t(value));}}));
  document.title=t(document.title);
  const meta=document.querySelector('meta[name=description]');meta.content=t(meta.content);
