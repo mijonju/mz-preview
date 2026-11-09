@@ -92,7 +92,7 @@ Object.assign(JA, {
   "Timing base video": "タイミングベースの映像",
   "Generated version": "生成した映像",
   "Scene direction": "シーンの指示",
-  "Drag a label to move a node.": "ラベルをドラッグするとノードを動かせます。",
+  "Drag any image to move it.": "画像をドラッグすると自由に動かせます。",
   "Reset ↺": "元に戻す ↺",
   "A light rises from the cannon. After a brief pause, the fireworks open. The card appears and the two characters stand together.": "大砲から光が上昇し、一瞬の間のあと花火が開く。カードが現れ、2人が並ぶ。",
   "Generated version preview": "生成した映像のプレビュー",

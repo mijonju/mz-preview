@@ -44,3 +44,4 @@ html[lang=ja] .hero-board .node-handle span{letter-spacing:.12em}
 .hero-board.static .node-handle{cursor:default}
 @media(max-width:700px){.hero .board-scroll .hero-board{height:560px}.hero .board-tools{margin-top:20px}.hero .board-scroll{border-radius:12px}}
 .hero .board-scroll .hero-board{margin:0 auto}
+.hero-board:not(.static) .workflow-node{cursor:grab;touch-action:none}.hero-board:not(.static) .workflow-node.dragging{cursor:grabbing}.hero-board .workflow-node video{cursor:auto}.hero-board .workflow-node.dragging video{cursor:grabbing}.hero-board:not(.static) .workflow-node:hover .node-content{box-shadow:0 0 0 1px #b9c3bd,0 14px 30px #2a3a321f}.hero-board .node-text{user-select:none}

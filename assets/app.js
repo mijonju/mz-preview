@@ -56,11 +56,26 @@ function fitBoard(){
  drawWires();
 }
 function moveNode(n,x,y){n.style.left=Math.max(8,Math.min(BOARD_W-n.offsetWidth-8,x))+'px';n.style.top=Math.max(8,Math.min(BOARD_H-n.offsetHeight-8,y))+'px';drawWires();}
+// Drag a node by its image, video, card or label. Video control bars stay usable,
+// a plain click still plays a video, and a drag never triggers that click.
 nodes.forEach(n=>{
- const handle=n.querySelector('.node-handle');let drag=null;
- handle.addEventListener('pointerdown',e=>{if(e.button!==0||scale<.6)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:n.offsetLeft,top:n.offsetTop};handle.setPointerCapture(e.pointerId);n.classList.add('dragging');});
- handle.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;moveNode(n,drag.left+(e.clientX-drag.x)/scale,drag.top+(e.clientY-drag.y)/scale);});
- const finish=()=>{drag=null;n.classList.remove('dragging');};handle.addEventListener('pointerup',finish);handle.addEventListener('pointercancel',finish);handle.addEventListener('lostpointercapture',finish);
+ const handle=n.querySelector('.node-handle');let drag=null,moved=false;
+ n.addEventListener('pointerdown',e=>{
+  if(e.button!==0||scale<.6)return;
+  const v=e.target.closest('video');
+  if(v){const r=v.getBoundingClientRect();if(e.clientY>r.bottom-52*scale)return;}
+  drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:n.offsetLeft,top:n.offsetTop,active:false};moved=false;
+  if(!v)e.preventDefault();
+ });
+ n.addEventListener('pointermove',e=>{
+  if(!drag||drag.id!==e.pointerId)return;
+  const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+  if(!drag.active){if(Math.hypot(dx,dy)<5)return;drag.active=true;moved=true;n.setPointerCapture(e.pointerId);n.classList.add('dragging');}
+  moveNode(n,drag.left+dx/scale,drag.top+dy/scale);
+ });
+ const finish=()=>{drag=null;n.classList.remove('dragging');};
+ n.addEventListener('pointerup',finish);n.addEventListener('pointercancel',finish);n.addEventListener('lostpointercapture',finish);
+ n.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
  handle.addEventListener('keydown',e=>{const steps={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]};if(!steps[e.key])return;e.preventDefault();const [x,y]=steps[e.key],step=e.shiftKey?30:10;moveNode(n,n.offsetLeft+x*step,n.offsetTop+y*step);});
 });
 $('reset-board').addEventListener('click',()=>{nodes.forEach((n,i)=>moveNode(n,initial[i].left,initial[i].top));});
