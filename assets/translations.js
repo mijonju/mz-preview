@@ -150,6 +150,21 @@ Object.assign(JA, {
   "Are the spoken lines, expressions and gestures right for the scene?": "セリフ、表情、しぐさはシーンに合っているか。",
   "Just reply to the message this preview came with. A few words on what works and what doesn’t is plenty, and I’ll take the next round from there.": "このプレビューをお送りしたメッセージに、そのままご返信ください。良かった点、気になった点をひと言いただくだけで十分です。そこから次の制作を進めます。"
 });
+Object.assign(JA, {
+  "ONE MORE THING": "おまけ",
+  "More context.": "素材がそろえば、",
+  "A fuller": "物語は",
+  "story.": "もっと豊かに。",
+  "With a storyboard, brand guidelines and the character IP in hand, a sequence can carry a real story: the setup, the struggle, the launch, a surprise and the final card. Two quick drafts from the same 10-cut storyboard, one in the standard character style and one in chibi style.": "絵コンテ、ブランドガイドライン、キャラクターIPがそろえば、準備、奮闘、打ち上げ、ハプニング、最後のカードまで、ひとつの物語として映像を組み立てられます。同じ10カットの絵コンテから作った2本の試作を、通常の等身とちびキャラでご覧ください。",
+  "A VERY EARLY PROOF OF CONCEPT": "ごく初期のプルーフ・オブ・コンセプト",
+  "I made these well before I received any official assets, so some details, including the logo, aren’t right yet. They show where the idea started, and how far it can go once the right materials are in place.": "これらは、公式の素材をいただくよりずっと前に制作したものです。そのため、ロゴを含め一部の表現はまだ正確ではありません。アイデアの出発点として、そして正しい素材がそろえばどこまで広げられるかの参考としてご覧ください。",
+  "STORYBOARD · 10 CUTS": "絵コンテ · 10カット",
+  "STANDARD STYLE · 12 SEC": "通常の等身 · 12秒",
+  "CHIBI STYLE · 12 SEC": "ちびキャラ · 12秒",
+  "Christmas hanabi storyboard, 10 cuts": "クリスマス花火の絵コンテ（10カット）",
+  "Standard style draft": "通常の等身の試作映像",
+  "Chibi style draft": "ちびキャラの試作映像"
+});
 function t(text){return IS_JA ? (JA[text] || text) : text;}
 if(IS_JA){
  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;

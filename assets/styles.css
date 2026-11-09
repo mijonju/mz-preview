@@ -45,3 +45,9 @@ html[lang=ja] .hero-board .node-handle span{letter-spacing:.12em}
 @media(max-width:700px){.hero .board-scroll .hero-board{height:560px}.hero .board-tools{margin-top:20px}.hero .board-scroll{border-radius:12px}}
 .hero .board-scroll .hero-board{margin:0 auto}
 .hero-board:not(.static) .workflow-node{cursor:grab;touch-action:none}.hero-board:not(.static) .workflow-node.dragging{cursor:grabbing}.hero-board .workflow-node video{cursor:auto}.hero-board .workflow-node.dragging video{cursor:grabbing}.hero-board:not(.static) .workflow-node:hover .node-content{box-shadow:0 0 0 1px #b9c3bd,0 14px 30px #2a3a321f}.hero-board .node-text{user-select:none}
+.bonus{background:#f1f0ea;border-top:1px solid var(--line)}.bonus-note{margin:0 0 28px}
+.bonus-grid{display:grid;grid-template-columns:1.777fr .745fr .5625fr;gap:18px;align-items:start}.bonus-grid figure{margin:0;min-width:0}
+.bonus-board button{display:block;width:100%;padding:0;background:#141a24;cursor:zoom-in;border-radius:8px;overflow:hidden}.bonus-board img{aspect-ratio:1672/941;object-fit:cover}
+.bonus-std video{width:100%;aspect-ratio:560/752;background:#0d110e;border-radius:8px;display:block}.bonus-chibi video{width:100%;aspect-ratio:9/16;background:#0d110e;border-radius:8px;display:block}
+@media(max-width:1000px){.bonus-grid{grid-template-columns:1fr 1fr}.bonus-board{grid-column:1/-1}.bonus-std video,.bonus-chibi video{height:420px;aspect-ratio:auto;object-fit:contain}}
+@media(max-width:700px){.bonus-std video,.bonus-chibi video{height:300px}.bonus-grid{gap:12px}}
