@@ -22,3 +22,25 @@ html[lang=ja] .steps h3{font-size:18px}html[lang=ja] .next-round h3{font-size:26
 @media(max-width:1000px){.steps{grid-template-columns:1fr 1fr 1fr}.steps article{border-bottom:1px solid #bdc9bd}.steps article:nth-child(3){border-right:0;margin-right:0}.compare-col video,.compare-art{height:360px}.next-round{grid-template-columns:1fr}}
 @media(max-width:700px){.draft-note{padding:12px 14px;margin-bottom:22px}.draft-note p{font-size:13px}.compare{padding:16px}.compare-head{display:block}.compare-actions{align-items:flex-start;margin-top:16px}.compare-grid{grid-template-columns:1fr}.compare-col video{height:420px}.compare-art{grid-template-rows:none;grid-template-columns:repeat(3,1fr);height:150px}.steps{grid-template-columns:1fr}.steps article{margin:0;padding:18px 0;border-right:0}.steps h3{font-size:20px;margin:12px 0 8px}.next-round{padding:18px}.next-round h3{font-size:25px}.feedback li{font-size:13px}nav{gap:12px}}
 .reply-note{margin-top:22px;font-size:15px;max-width:620px;padding:14px 18px;background:#ffffff80;border-left:3px solid var(--ink)}@media(max-width:700px){.reply-note{font-size:13px}}
+/* Weave-style light collage board */
+.hero .board-tools{justify-content:flex-end;gap:14px;margin-top:30px;padding:8px 0;font:10px 'Courier New',monospace;letter-spacing:.06em;color:#7a847e}.hero .board-tools button{padding:4px 0;background:none;font:inherit;color:#4d5651;text-decoration:underline;text-underline-offset:4px}
+.hero .board-scroll{overflow:hidden;border:0;border-radius:18px;margin:0 0 30px;background:linear-gradient(180deg,#f3f5f4 0%,#e3e9e5 60%,#d3ddd7 100%);box-shadow:inset 0 0 0 1px #d5ddd8}
+.hero .board-scroll .hero-board{width:1290px;height:560px;background:none;transform-origin:0 0;margin:0}
+.hero .board-scroll .connections{width:1290px;height:560px;stroke:#b4bdb8;stroke-width:1.2}
+.hero-board .workflow-node[data-node]{width:var(--w)}
+.hero-board .node-handle{height:26px;padding:0 0 6px;justify-content:flex-start;gap:14px;color:var(--ink);font:bold 10px Arial,Helvetica,sans-serif;letter-spacing:.02em;border-radius:0}
+.hero-board .node-handle span{font:10px Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#4c5550}
+html[lang=ja] .hero-board .node-handle span{letter-spacing:.12em}
+.hero-board .node-content{border:0;border-radius:10px;background:#e8ece9;box-shadow:0 10px 26px #2a3a3214}
+.hero-board .workflow-node .node-content>img,.hero-board .workflow-node .node-content>video,.hero-board .workflow-node[data-node] .node-content video{height:var(--h);width:100%;object-fit:cover;background:#e8ece9}
+.hero-board .workflow-node .node-content>video{object-fit:contain;background:#0d110e}
+.hero-board .workflow-node[data-node=text] .node-content{background:#fff}
+.node-text{padding:14px 16px;font-size:12px;line-height:1.6;color:#6c7470}
+.hero-board .port{width:9px;height:9px;border:1px solid #a9b3ad;background:#f4f6f5;top:calc(13px + (100% - 13px)/2)}
+.hero-board .port-in{left:-5px}.hero-board .port-out{right:-5px}
+.hero-board .workflow-node.has-in .port-in{display:block}
+.hero-board .workflow-node.dragging .node-content{box-shadow:0 0 0 2px #9aa7a0,0 16px 34px #2a3a3226}
+.hero-board .canvas-caption{left:40px;bottom:18px;color:#7d8882}
+.hero-board.static .node-handle{cursor:default}
+@media(max-width:700px){.hero .board-scroll .hero-board{height:560px}.hero .board-tools{margin-top:20px}.hero .board-scroll{border-radius:12px}}
+.hero .board-scroll .hero-board{margin:0 auto}

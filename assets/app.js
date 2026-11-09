@@ -36,25 +36,36 @@ selectDemo(SAMPLES[0]);
 
 // The board contains presentation references only; dragging changes layout, not production.
 const board=document.querySelector('.hero-board');
+const boardWrap=document.querySelector('.board-scroll');
 const wires=board.querySelector('.connections');
 const nodes=[...board.querySelectorAll('.workflow-node')];
+const byKey=Object.fromEntries(nodes.map(n=>[n.dataset.node,n]));
+const edges=nodes.filter(n=>n.dataset.to&&byKey[n.dataset.to]).map(n=>{byKey[n.dataset.to].classList.add('has-in');const p=document.createElementNS('http://www.w3.org/2000/svg','path');wires.append(p);return {from:n,to:byKey[n.dataset.to],path:p};});
 const initial=nodes.map(n=>({left:parseFloat(n.style.left),top:parseFloat(n.style.top)}));
-const paths=nodes.slice(0,-1).map(()=>{const p=document.createElementNS('http://www.w3.org/2000/svg','path');wires.append(p);return p;});
+const BOARD_W=1290,BOARD_H=560;let scale=1;
 function drawWires(){
- const target=nodes.at(-1);const tx=target.offsetLeft,ty=target.offsetTop+target.offsetHeight/2;
- nodes.slice(0,-1).forEach((n,i)=>{const x=n.offsetLeft+n.offsetWidth,y=n.offsetTop+n.offsetHeight/2,bend=Math.max(45,Math.abs(tx-x)*.42);paths[i].setAttribute('d',`M ${x} ${y} C ${x+bend} ${y}, ${tx-bend} ${ty}, ${tx} ${ty}`);});
+ edges.forEach(({from,to,path})=>{const x=from.offsetLeft+from.offsetWidth,y=from.offsetTop+13+(from.offsetHeight-13)/2,tx=to.offsetLeft,ty=to.offsetTop+13+(to.offsetHeight-13)/2,bend=Math.max(40,Math.abs(tx-x)*.5);path.setAttribute('d',`M ${x} ${y} C ${x+bend} ${y}, ${tx-bend} ${ty}, ${tx} ${ty}`);});
 }
-function moveNode(n,x,y){n.style.left=Math.max(8,Math.min(board.clientWidth-n.offsetWidth-8,x))+'px';n.style.top=Math.max(8,Math.min(board.clientHeight-n.offsetHeight-32,y))+'px';drawWires();}
+function fitBoard(){
+ if(!boardWrap.clientWidth)return;
+ scale=Math.min(1,boardWrap.clientWidth/BOARD_W);
+ board.style.transform=scale<1?`scale(${scale})`:'';
+ boardWrap.style.height=Math.round(BOARD_H*scale)+'px';
+ board.classList.toggle('static',scale<.6);
+ document.querySelector('.board-tools').hidden=scale<.6;
+ drawWires();
+}
+function moveNode(n,x,y){n.style.left=Math.max(8,Math.min(BOARD_W-n.offsetWidth-8,x))+'px';n.style.top=Math.max(8,Math.min(BOARD_H-n.offsetHeight-8,y))+'px';drawWires();}
 nodes.forEach(n=>{
  const handle=n.querySelector('.node-handle');let drag=null;
- handle.addEventListener('pointerdown',e=>{if(e.button!==0)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:n.offsetLeft,top:n.offsetTop};handle.setPointerCapture(e.pointerId);n.classList.add('dragging');});
- handle.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;moveNode(n,drag.left+e.clientX-drag.x,drag.top+e.clientY-drag.y);});
+ handle.addEventListener('pointerdown',e=>{if(e.button!==0||scale<.6)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,left:n.offsetLeft,top:n.offsetTop};handle.setPointerCapture(e.pointerId);n.classList.add('dragging');});
+ handle.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;moveNode(n,drag.left+(e.clientX-drag.x)/scale,drag.top+(e.clientY-drag.y)/scale);});
  const finish=()=>{drag=null;n.classList.remove('dragging');};handle.addEventListener('pointerup',finish);handle.addEventListener('pointercancel',finish);handle.addEventListener('lostpointercapture',finish);
  handle.addEventListener('keydown',e=>{const steps={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]};if(!steps[e.key])return;e.preventDefault();const [x,y]=steps[e.key],step=e.shiftKey?30:10;moveNode(n,n.offsetLeft+x*step,n.offsetTop+y*step);});
 });
-$('reset-board').addEventListener('click',()=>{nodes.forEach((n,i)=>moveNode(n,initial[i].left,initial[i].top));document.querySelector('.board-scroll').scrollLeft=0;});
-new ResizeObserver(drawWires).observe(board);
-drawWires();
+$('reset-board').addEventListener('click',()=>{nodes.forEach((n,i)=>moveNode(n,initial[i].left,initial[i].top));});
+new ResizeObserver(fitBoard).observe(boardWrap);
+fitBoard();
 
 document.querySelectorAll('[data-inspect]').forEach(button=>{
  const label=t(button.dataset.caption);button.setAttribute('aria-label',IS_JA?`${label}を拡大`:`Inspect ${label.toLowerCase()}`);
