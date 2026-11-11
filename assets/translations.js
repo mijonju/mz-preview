@@ -159,7 +159,7 @@ Object.assign(JA, {
   "A VERY EARLY PROOF OF CONCEPT": "ごく初期のプルーフ・オブ・コンセプト",
   "I made these well before I received any official assets, so some details, including the logo, aren’t right yet. They show where the idea started, and how far it can go once the right materials are in place.": "これらは、公式の素材をいただくよりずっと前に制作したものです。そのため、ロゴを含め一部の表現はまだ正確ではありません。アイデアの出発点として、そして正しい素材がそろえばどこまで広げられるかの参考としてご覧ください。",
   "STORYBOARD · 10 CUTS": "絵コンテ · 10カット",
-  "STANDARD STYLE · 12 SEC": "通常の等身 · 12秒",
+  "STANDARD STYLE · 22 SEC": "通常の等身 · 22秒",
   "CHIBI STYLE · 12 SEC": "ちびキャラ · 12秒",
   "Christmas hanabi storyboard, 10 cuts": "クリスマス花火の絵コンテ（10カット）",
   "Standard style draft": "通常の等身の試作映像",

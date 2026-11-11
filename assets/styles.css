@@ -52,3 +52,4 @@ html[lang=ja] .hero-board .node-handle span{letter-spacing:.12em}
 @media(max-width:1000px){.bonus-grid{grid-template-columns:1fr 1fr}.bonus-board{grid-column:1/-1}.bonus-std video,.bonus-chibi video{height:420px;aspect-ratio:auto;object-fit:contain}}
 @media(max-width:700px){.bonus-std video,.bonus-chibi video{height:300px}.bonus-grid{gap:12px}}
 .wordmark .brand-logo{display:block;height:30px;width:auto;border-radius:3px}@media(max-width:700px){.wordmark .brand-logo{height:24px}}
+.bonus-grid{grid-template-columns:1.777fr .5625fr .5625fr}.bonus-std video{aspect-ratio:9/16}@media(max-width:1000px){.bonus-grid{grid-template-columns:1fr 1fr}}
