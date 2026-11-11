@@ -37,7 +37,7 @@ const JA = {
 'CREATIVE DIRECTION':'クリエイティブディレクション','AI-ASSISTED ANIMATION':'AIを活用したアニメーション','VISUAL DEVELOPMENT':'ビジュアル開発','COMPOSITING & FINISHING':'合成・仕上げ',
 'THE CONVERSATION STARTS HERE':'ここから、次の演出へ','What should we':'次は、どこを','push':'さらに','further?':'磨きましょうか。',
 'Timing and anticipation. Character fidelity.':'タイミングと期待感。キャラクターの再現性。','Effects and colour. The moment of reveal.':'エフェクトと色彩。カードが現れる瞬間。','Revisit the demos':'デモをもう一度見る',
-'Prepared for Muzika Japan · November 2026':'Muzika Japan様向け資料 · 2026年11月','Preview material for evaluation only.':'評価・検討用のプレビュー資料です。','Scope, rights and commercial use subject to agreement.':'制作範囲、権利、商用利用については別途合意の上で決定します。','Close ×':'閉じる ×',
+'Preview · November 2026':'プレビュー資料 · 2026年11月','Preview material for evaluation only.':'評価・検討用のプレビュー資料です。','Scope, rights and commercial use subject to agreement.':'制作範囲、権利、商用利用については別途合意の上で決定します。','Close ×':'閉じる ×',
 'Rainbow':'レインボー','Green':'グリーン','Blue':'ブルー','REQUESTED VERSION':'ご依頼バージョン','10 SEC / 3:4':'10秒 / 3:4','10 SEC / 9:16':'10秒 / 9:16',
 'The rainbow reveal.':'レインボーのカード演出。','A rising group of lights builds towards a multicolour spectacle and a shared character-card reveal.':'上昇する光が色鮮やかな花火へつながり、2人のキャラクターが描かれたカードが登場します。',
 'Seven shots leading to an extremely large seven-colour star mine.':'7発の打ち上げから、特大の7色スターマインへ。','A Rainbow card display.':'レインボーカードを表示。','Ataru and Yotsuba raise their arms together in celebration.':'アタルとヨツバが一緒に両手を上げて喜ぶ。',
@@ -50,7 +50,7 @@ const JA = {
 'Check all three fireworks remain small and readable, and confirm the blue card and final nod are present as requested.':'3発とも小さく見やすい花火になっているか、青いカードと最後のうなずきが要件どおりに入っているかをご確認ください。',
 'Ataru':'アタル','Opening':'冒頭','Restart':'再開','Finish':'締め',
 'Launch direction':'打ち上げの参考','Firework palette':'花火の配色','Card artwork':'カードの絵柄','Cannon design':'大砲のデザイン','Willow direction':'柳花火の参考','Character design':'キャラクターデザイン','Blue effect direction':'青い花火の参考',
-'Mijonju home':'MIJONJU トップ','Main navigation':'メインナビゲーション','Language':'言語','Interactive reference board':'操作できる参考画像ボード','Choose a requested version':'ご依頼バージョンを選択','Selected animation preview':'選択したアニメーション','Close image':'画像を閉じる',
+'EARLYCROSS home':'EARLYCROSS トップ','Main navigation':'メインナビゲーション','Language':'言語','Interactive reference board':'操作できる参考画像ボード','Choose a requested version':'ご依頼バージョンを選択','Selected animation preview':'選択したアニメーション','Close image':'画像を閉じる',
 'Pikachu themed animation':'ピカチュウをテーマにした映像','Christmas themed animation':'クリスマスをテーマにした映像','Christmas node preview':'クリスマス映像のノード','Monochrome timing reference':'モノクロのタイミング参考映像',
 'Pikachu-themed cannon reference':'ピカチュウをテーマにした大砲の参考','Characters wearing Pikachu costumes':'ピカチュウの衣装を着たキャラクター','Christmas cannon with garlands':'飾り付けをしたクリスマスの大砲','Characters in festive Christmas costumes':'クリスマス衣装のキャラクター',
 'An interactive review of directed animation, visual treatments and creative variations by Michel.':'Michelによるアニメーション、ビジュアル表現、創作バリエーションのインタラクティブな確認用デモ。'
